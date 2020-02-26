@@ -8,25 +8,25 @@
     <fragment
         android:id="@+id/nav_home"
         android:name="com.example.morfaap.ui.home.HomeFragment"
-        android:label="@string/menu_home"
+        android:label="Comida"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/nav_gallery"
-        android:name="com.example.morfaap.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:name="com.example.morfaap.ui.perfil.PerfilFragment"
+        android:label="Perfil"
+        tools:layout="@layout/fragment_perfil" />
 
     <fragment
         android:id="@+id/nav_slideshow"
-        android:name="com.example.morfaap.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
+        android:name="com.example.morfaap.ui.pedidos.PedidosFragment"
+        android:label="Mis pedidos"
         tools:layout="@layout/fragment_slideshow" />
 
     <fragment
         android:id="@+id/nav_tools"
-        android:name="com.example.morfaap.ui.tools.ToolsFragment"
-        android:label="@string/menu_tools"
+        android:name="com.example.morfaap.ui.comentario.ComentarioFragment"
+        android:label="Comentarios"
         tools:layout="@layout/fragment_tools" />
 
     <fragment

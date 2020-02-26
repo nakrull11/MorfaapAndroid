@@ -1,4 +1,4 @@
-package com.example.morfaap.ui.slideshow;
+package com.example.morfaap.ui.comentario;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.morfaap.R;
 
-public class SlideshowFragment extends Fragment {
+public class ComentarioFragment extends Fragment {
 
-    private SlideshowViewModel slideshowViewModel;
+    private ComentarioViewModel comentarioViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        slideshowViewModel =
-                ViewModelProviders.of(this).get(SlideshowViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_slideshow, container, false);
-        final TextView textView = root.findViewById(R.id.text_slideshow);
-        slideshowViewModel.getText().observe(this, new Observer<String>() {
+        comentarioViewModel =
+                ViewModelProviders.of(this).get(ComentarioViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_tools, container, false);
+        final TextView textView = root.findViewById(R.id.text_tools);
+        comentarioViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
