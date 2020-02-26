@@ -97,6 +97,7 @@
         android:layout_marginBottom="16dp"
         android:fontFamily="sans-serif"
         android:text="No tenes una cuenta?"
+        android:onClick="Registro"
         android:textColor="@color/design_default_color_primary_dark"
         android:textSize="12sp"
         android:textStyle="bold"

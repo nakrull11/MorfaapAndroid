@@ -1,7 +1,8 @@
-package com.example.morfaap;
+package com.example.morfaap.ui.nav;
 
 import android.os.Bundle;
 
+import com.example.morfaap.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
