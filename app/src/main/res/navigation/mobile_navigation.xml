@@ -12,22 +12,22 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_gallery"
+        android:id="@+id/nav_perfil"
         android:name="com.example.morfaap.ui.perfil.PerfilFragment"
         android:label="Perfil"
         tools:layout="@layout/fragment_perfil" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
+        android:id="@+id/nav_pedidos"
         android:name="com.example.morfaap.ui.pedidos.PedidosFragment"
         android:label="Mis pedidos"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/fragment_pedidos" />
 
     <fragment
-        android:id="@+id/nav_tools"
+        android:id="@+id/nav_comentario"
         android:name="com.example.morfaap.ui.comentario.ComentarioFragment"
         android:label="Comentarios"
-        tools:layout="@layout/fragment_tools" />
+        tools:layout="@layout/fragment_comentario" />
 
     <fragment
         android:id="@+id/nav_share"
@@ -35,9 +35,4 @@
         android:label="@string/menu_share"
         tools:layout="@layout/fragment_share" />
 
-    <fragment
-        android:id="@+id/nav_send"
-        android:name="com.example.morfaap.ui.send.SendFragment"
-        android:label="@string/menu_send"
-        tools:layout="@layout/fragment_send" />
 </navigation>

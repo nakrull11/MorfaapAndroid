@@ -16,12 +16,15 @@ import androidx.annotation.Nullable;
 import com.example.morfaap.Models.PlatoModel;
 import com.example.morfaap.R;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ListaPlatosAdapter extends ArrayAdapter<PlatoModel> {
 
     private Context context;
     private List<PlatoModel> lista;
+    private static List<PlatoModel> platosPedidos = new ArrayList<>();
     private LayoutInflater li;
 
     public ListaPlatosAdapter(@NonNull Context context, int resource, @NonNull List<PlatoModel> objects , LayoutInflater li) {
@@ -53,11 +56,16 @@ public class ListaPlatosAdapter extends ArrayAdapter<PlatoModel> {
             @Override
             public void onClick(View view) {
                 Toast.makeText(getContext(),"Has cargado "+nombrePlato.getText()+" a tu pedido",Toast.LENGTH_LONG).show();
+                platosPedidos.add(plato);
             }
         });
         Log.d("El adapter","bien");
         //Aqui poner metodos OnClick
 
         return itemView;
+    }
+
+    public static List<PlatoModel> getPlatosPedidos(){
+        return platosPedidos;
     }
 }

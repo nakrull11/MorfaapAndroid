@@ -45,7 +45,7 @@ public class PerfilFragment extends Fragment {
             public void onChanged(UsuarioModel usuarioModel) {
                 if(usuarioModel !=null) {
                     email.setText(usuarioModel.getEmail());
-                    fecNac.setText((CharSequence) usuarioModel.getFecNac());
+                    fecNac.setText(usuarioModel.getFecNac().toString());
                     direccion.setText(usuarioModel.getDireccion());
                     numCelular.setText(usuarioModel.getNumCelular());
                 }else Toast.makeText(getContext(),"Hay un problema con el objeto",Toast.LENGTH_LONG).show();

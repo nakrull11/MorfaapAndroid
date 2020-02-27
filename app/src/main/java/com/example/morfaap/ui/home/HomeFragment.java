@@ -1,13 +1,18 @@
 package com.example.morfaap.ui.home;
 
+import android.database.DataSetObserver;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
@@ -27,6 +32,8 @@ public class HomeFragment extends Fragment {
     private HomeViewModel homeViewModel;
     private List<PlatoModel> lista = new ArrayList<>();
     private View root;
+    private Spinner spinner;
+    private static String[] categorias ={"Todas","Sanwiches","Pizza","Tartas","Carne","Pescado","Pasta","Agregado"};
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         root = inflater.inflate(R.layout.fragment_home, container, false);
@@ -41,7 +48,9 @@ public class HomeFragment extends Fragment {
         homeViewModel.setPlatos();
     }
 
+
     public void incializar(){
+
         homeViewModel.getPlatos().observe(getViewLifecycleOwner(), new Observer<List<PlatoModel>>() {
             @Override
             public void onChanged(List<PlatoModel> platoModels) {
@@ -51,6 +60,11 @@ public class HomeFragment extends Fragment {
                 lv.setAdapter(adapter);
             }
         });
+
+        spinner = root.findViewById(R.id.spinner);
+
+
     }
+
 
 }

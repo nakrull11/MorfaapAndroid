@@ -8,27 +8,27 @@
 
     <EditText
         android:id="@+id/etLatRegistro"
-        android:enabled="false"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
         android:ems="10"
-        android:inputType="numberDecimal"
-        android:textSize="13sp"
+        android:enabled="false"
+        android:inputType="text"
+        android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cbUbicacion" />
 
     <EditText
         android:id="@+id/etLonRegistro"
-        android:enabled="false"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:layout_marginStart="4dp"
+        android:layout_marginTop="20dp"
         android:ems="10"
-        android:inputType="numberDecimal"
-        android:textSize="13sp"
+        android:enabled="false"
+        android:inputType="text"
+        android:textSize="12sp"
         app:layout_constraintStart_toEndOf="@+id/etLatRegistro"
         app:layout_constraintTop_toBottomOf="@+id/cbUbicacion" />
 
@@ -68,6 +68,7 @@
         android:layout_marginStart="70dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="70dp"
+        android:onClick="registrarse"
         android:fontFamily="@font/candal"
         android:text="Registrarse!"
         android:textSize="12sp"
@@ -148,6 +149,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="20dp"
         android:checked="true"
+        android:onClick="comprobar"
         android:fontFamily="@font/candal"
         android:text="Guardar mi ubicación actual"
         android:textSize="11sp"

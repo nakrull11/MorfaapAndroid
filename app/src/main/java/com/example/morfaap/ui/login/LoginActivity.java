@@ -22,14 +22,14 @@ import com.example.morfaap.Models.LoginView;
 import com.example.morfaap.R;
 import com.example.morfaap.ui.registro.RegistroActivity;
 
+import java.math.BigDecimal;
+
 public class LoginActivity extends AppCompatActivity {
     private EditText email, password;
     private TextView error;
     private String token;
     private LoginViewModel loginViewModel;
-    private LocationManager ubicacion;
-    private double Lat;
-    private double Lon;
+
 
 
 
@@ -37,7 +37,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        localizacion();
+
         email = findViewById(R.id.etEmail);
         password = findViewById(R.id.etPass);
         error = findViewById(R.id.tvError);
@@ -68,8 +68,8 @@ public class LoginActivity extends AppCompatActivity {
 
     public void Registro(android.view.View view){
         Intent intent = new Intent(getApplicationContext(), RegistroActivity.class);
-        intent.putExtra("Latitud",Lat);
-        intent.putExtra("Longitud",Lon);
+        //intent.putExtra("Latitud",Lat);
+        //intent.putExtra("Longitud",Lon);
         startActivity(intent);
     }
 
@@ -81,20 +81,6 @@ public class LoginActivity extends AppCompatActivity {
         loginViewModel.Login(loginView);
     }
 
-    private void localizacion() {
-        if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this,new String[]{
-                    Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.ACCESS_FINE_LOCATION},1000);
 
-        }
-        ubicacion = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        Location loc = ubicacion.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-        Lat = loc.getAltitude();
-        Lon = loc.getLongitude();
-        if(ubicacion!=null){
-            Log.d("Latitud",String.valueOf(loc.getLatitude()));
-            Log.d("Longitud",String.valueOf(loc.getLongitude()));
-        }
-    }
 
 }

@@ -23,6 +23,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/candal"
         android:text="Pedi la mejor comida online y al mejor precio"
+        android:textColor="@android:color/black"
         android:textSize="9sp"
         app:layout_constraintBottom_toTopOf="@+id/etEmail"
         app:layout_constraintEnd_toEndOf="parent"

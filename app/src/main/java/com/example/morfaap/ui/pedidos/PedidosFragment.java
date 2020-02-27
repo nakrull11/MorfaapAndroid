@@ -13,23 +13,19 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.morfaap.R;
+import com.example.morfaap.ui.adapters.ListaPlatosAdapter;
 
 public class PedidosFragment extends Fragment {
 
     private PedidosViewModel pedidosViewModel;
+    private ListaPlatosAdapter adapter;
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        pedidosViewModel =
-                ViewModelProviders.of(this).get(PedidosViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_slideshow, container, false);
-        final TextView textView = root.findViewById(R.id.text_slideshow);
-        pedidosViewModel.getText().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        pedidosViewModel = ViewModelProviders.of(this).get(PedidosViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_pedidos, container, false);
+
+        TextView textView = root.findViewById(R.id.text_slideshow);
+        textView.setText(ListaPlatosAdapter.getPlatosPedidos().toString());
         return root;
     }
 }

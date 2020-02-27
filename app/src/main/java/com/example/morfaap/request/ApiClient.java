@@ -53,6 +53,9 @@ public class ApiClient {
         @GET("usuariomodels/{email}")
         Call<UsuarioModel> getUsuario(@Header("Authorization") String token, @Path("email") String email);
 
+        @POST("usuariomodels")
+        Call<UsuarioModel> registro(@Body UsuarioModel usuarioModel);
+
         //Platos
         @GET("platomodels")
         Call<List<PlatoModel>> getPlatos(@Header("Authorization")String token);

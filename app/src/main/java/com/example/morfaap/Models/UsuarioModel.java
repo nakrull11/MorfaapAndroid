@@ -1,5 +1,6 @@
 package com.example.morfaap.Models;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class UsuarioModel {
@@ -7,13 +8,13 @@ public class UsuarioModel {
     private int idUsuario;
     private String email;
     private String fecNac;
-    private double lat;
-    private double lon;
+    private String lat;
+    private String lon;
     private String direccion;
     private String numCelular;
     private String password;
 
-    public UsuarioModel(int idUsuario, String email, String fecNac, double lat, double lon, String direccion, String numCelular, String password) {
+    public UsuarioModel(int idUsuario, String email, String fecNac, String lat, String lon, String direccion, String numCelular, String password) {
         this.idUsuario = idUsuario;
         this.email = email;
         this.fecNac = fecNac;
@@ -65,19 +66,19 @@ public class UsuarioModel {
         this.fecNac = fecNac;
     }
 
-    public double getLat() {
+    public String getLat() {
         return lat;
     }
 
-    public void setLat(double lat) {
+    public void setLat(String lat) {
         this.lat = lat;
     }
 
-    public double getLon() {
+    public String getLon() {
         return lon;
     }
 
-    public void setLon(double lon) {
+    public void setLon(String lon) {
         this.lon = lon;
     }
 
