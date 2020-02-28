@@ -10,7 +10,7 @@ public class ComentarioViewModel extends ViewModel {
 
     public ComentarioViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is tools fragment");
+        mText.setValue("Comentarios a locales");
     }
 
     public LiveData<String> getText() {

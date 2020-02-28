@@ -4,12 +4,12 @@ public class PlatoModel {
     private int idPlato;
     private String nombre;
     private String categoria;
-    private String precio;
+    private Double precio;
     private String estado;
     private int idMenu;
     private MenuModel menu;
 
-    public PlatoModel(int idPlato, String nombre, String categoria, String precio, String estado, int idMenu, MenuModel menu) {
+    public PlatoModel(int idPlato, String nombre, String categoria, Double precio, String estado, int idMenu, MenuModel menu) {
         this.idPlato = idPlato;
         this.nombre = nombre;
         this.categoria = categoria;
@@ -59,11 +59,11 @@ public class PlatoModel {
         this.categoria = categoria;
     }
 
-    public String getPrecio() {
+    public Double getPrecio() {
         return precio;
     }
 
-    public void setPrecio(String precio) {
+    public void setPrecio(Double precio) {
         this.precio = precio;
     }
 

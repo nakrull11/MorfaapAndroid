@@ -7,46 +7,142 @@
 
 
     <TextView
-        android:id="@+id/tvEmail"
+        android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="@font/candal"
+        android:text="Email"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toTopOf="@+id/etEmailPerfil"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <EditText
+        android:id="@+id/etEmailPerfil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/candal"
+        android:inputType="textEmailAddress"
         android:text="TextView"
+        android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvFecNac"
+        android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="@font/candal"
+        android:text="Fecha de nacimiento"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toTopOf="@+id/etFecNacPerfil"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/etDireccionPerfil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/candal"
         android:text="TextView"
+        android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/etFecNacPerfil" />
 
     <TextView
-        android:id="@+id/tvDireccion"
+        android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="@font/candal"
+        android:text="Direccion"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toTopOf="@+id/etDireccionPerfil"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/etNumCelularPerfil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
         android:layout_marginTop="40dp"
+        android:fontFamily="@font/candal"
+        android:inputType="number"
         android:text="TextView"
+        android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvFecNac" />
+        app:layout_constraintTop_toBottomOf="@+id/etDireccionPerfil" />
 
     <TextView
-        android:id="@+id/tvNumCelular"
+        android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="TextView"
+        android:layout_marginStart="30dp"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="@font/candal"
+        android:text="Password"
+        app:layout_constraintBottom_toTopOf="@+id/etPasswordPerfil"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvDireccion" />
+        android:textSize="13sp" />
+
+    <EditText
+        android:id="@+id/etPasswordPerfil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/candal"
+        android:inputType="textPassword"
+        android:text="TextView"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etNumCelularPerfil" />
 
     <TextView
-        android:id="@+id/tvPassword"
+        android:id="@+id/textView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="@font/candal"
+        android:text="Celular Numero"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toTopOf="@+id/etNumCelularPerfil"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/etFecNacPerfil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
         android:layout_marginTop="40dp"
+        android:fontFamily="@font/candal"
         android:text="TextView"
+        android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvNumCelular" />
+        app:layout_constraintTop_toBottomOf="@+id/etEmailPerfil" />
+
+    <Button
+        android:id="@+id/button"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/candal"
+        android:text="Editar"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

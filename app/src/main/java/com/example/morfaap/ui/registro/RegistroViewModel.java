@@ -21,6 +21,7 @@ import retrofit2.Response;
 
 public class RegistroViewModel extends AndroidViewModel {
     private Context context;
+    private int res;
 
 
     public RegistroViewModel(@NonNull Application application) {
@@ -30,7 +31,7 @@ public class RegistroViewModel extends AndroidViewModel {
 
 
 
-    public void Registro(UsuarioModel usuarioModel){
+    public int Registro(UsuarioModel usuarioModel){
         Call<UsuarioModel> dato = ApiClient.getMyApiClient().registro(usuarioModel);
         Log.d("call registro",usuarioModel.toString());
         dato.enqueue(new Callback<UsuarioModel>() {
@@ -42,14 +43,19 @@ public class RegistroViewModel extends AndroidViewModel {
                 }catch (Exception ex){
                     Log.d("excepcion",ex.getMessage());
                 }
-
-
+                if(response.isSuccessful()){
+                    res=1;
+                }else {
+                    res=2;
+                }
             }
             @Override
             public void onFailure(Call<UsuarioModel> call, Throwable t) {
                 Log.d("fallo registro",t.getMessage());
+                res=3;
                 Toast.makeText(context,"Fallo el registro"+t.getMessage(),Toast.LENGTH_LONG).show();
             }
         });
+        return res;
     }
 }

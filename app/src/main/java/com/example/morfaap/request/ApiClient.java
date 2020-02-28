@@ -2,7 +2,9 @@ package com.example.morfaap.request;
 
 import android.util.Log;
 
+import com.example.morfaap.Models.DetalleModel;
 import com.example.morfaap.Models.LoginView;
+import com.example.morfaap.Models.PedidoModel;
 import com.example.morfaap.Models.PlatoModel;
 import com.example.morfaap.Models.UsuarioModel;
 import com.google.gson.Gson;
@@ -59,6 +61,18 @@ public class ApiClient {
         //Platos
         @GET("platomodels")
         Call<List<PlatoModel>> getPlatos(@Header("Authorization")String token);
+
+        //Pedidos
+        @POST("pedidomodels")
+        Call<PedidoModel> registrarPedido(@Header("Authorization")String token,@Body PedidoModel pedidoModel);
+
+        @GET("pedidomodels/ultimo")
+        Call<PedidoModel> obtenerUltimoPedido(@Header("Authorization")String token);
+
+        //Detalles
+        @POST("detallemodels")
+        Call<DetalleModel> registrarDetalle(@Header("Authorization")String token,@Body DetalleModel detalleModel);
+
 
     }
 }

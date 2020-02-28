@@ -55,7 +55,7 @@ public class ListaPlatosAdapter extends ArrayAdapter<PlatoModel> {
         btnPedir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getContext(),"Has cargado "+nombrePlato.getText()+" a tu pedido",Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(),"Has cargado "+nombrePlato.getText()+" a tu pedido",Toast.LENGTH_SHORT).show();
                 platosPedidos.add(plato);
             }
         });
@@ -66,6 +66,7 @@ public class ListaPlatosAdapter extends ArrayAdapter<PlatoModel> {
     }
 
     public static List<PlatoModel> getPlatosPedidos(){
+
         return platosPedidos;
     }
 }

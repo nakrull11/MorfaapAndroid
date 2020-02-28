@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,7 +20,7 @@ import com.example.morfaap.R;
 
 public class PerfilFragment extends Fragment {
     private View root;
-    private TextView email,fecNac,lat,lon,direccion,numCelular;
+    private EditText email,fecNac,direccion,numCelular,password;
     private PerfilViewModel perfilViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -29,15 +30,12 @@ public class PerfilFragment extends Fragment {
     }
 
     private void inicializar(){
-        email = root.findViewById(R.id.tvEmail);
-        fecNac = root.findViewById(R.id.tvFecNac);
-
-        direccion = root.findViewById(R.id.tvDireccion);
-        numCelular = root.findViewById(R.id.tvNumCelular);
-
-
+        email = root.findViewById(R.id.etEmailPerfil);
+        fecNac = root.findViewById(R.id.etFecNacPerfil);
+        direccion = root.findViewById(R.id.etDireccionPerfil);
+        numCelular = root.findViewById(R.id.etNumCelularPerfil);
+        password = root.findViewById(R.id.etPasswordPerfil);
         perfilViewModel = ViewModelProviders.of(this).get(PerfilViewModel.class);
-
         perfilViewModel.setUsuario();
 
         perfilViewModel.getUsuario().observe(getViewLifecycleOwner(), new Observer<UsuarioModel>() {
@@ -45,7 +43,7 @@ public class PerfilFragment extends Fragment {
             public void onChanged(UsuarioModel usuarioModel) {
                 if(usuarioModel !=null) {
                     email.setText(usuarioModel.getEmail());
-                    fecNac.setText(usuarioModel.getFecNac().toString());
+                    fecNac.setText(usuarioModel.getFecNac());
                     direccion.setText(usuarioModel.getDireccion());
                     numCelular.setText(usuarioModel.getNumCelular());
                 }else Toast.makeText(getContext(),"Hay un problema con el objeto",Toast.LENGTH_LONG).show();

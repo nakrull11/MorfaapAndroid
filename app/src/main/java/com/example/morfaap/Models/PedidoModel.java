@@ -4,60 +4,71 @@ import java.util.Date;
 
 public class PedidoModel {
 
-    private int IdPedido;
-    private Date Fecha;
-    private String Estado;
-    private int IdUsuario;
-    private UsuarioModel Usuario;
+    private int idPedido;
+    private String fecha;
+    private String estado;
+    private int idUsuario;
+    private UsuarioModel usuario;
 
-    public PedidoModel(int idPedido, Date fecha, String estado, int idUsuario, UsuarioModel usuario) {
-        IdPedido = idPedido;
-        Fecha = fecha;
-        Estado = estado;
-        IdUsuario = idUsuario;
-        Usuario = usuario;
+    public PedidoModel(int idPedido, String fecha, String estado, int idUsuario, UsuarioModel usuario) {
+        this.idPedido = idPedido;
+        this.fecha = fecha;
+        this.estado = estado;
+        this.idUsuario = idUsuario;
+        this.usuario = usuario;
     }
 
     public PedidoModel() {
     }
 
+    @Override
+    public String toString() {
+        return "PedidoModel{" +
+                "idPedido=" + idPedido +
+                ", fecha=" + fecha +
+                ", estado='" + estado + '\'' +
+                ", idUsuario=" + idUsuario +
+                ", usuario=" + usuario +
+                '}';
+    }
+
     public int getIdPedido() {
-        return IdPedido;
+        return idPedido;
     }
 
     public void setIdPedido(int idPedido) {
-        IdPedido = idPedido;
+        this.idPedido = idPedido;
     }
 
-    public Date getFecha() {
-        return Fecha;
+    public String getFecha() {
+        return fecha;
     }
 
-    public void setFecha(Date fecha) {
-        Fecha = fecha;
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
     }
 
     public String getEstado() {
-        return Estado;
+        return estado;
     }
 
     public void setEstado(String estado) {
-        Estado = estado;
+        this.estado = estado;
     }
 
     public int getIdUsuario() {
-        return IdUsuario;
+        return idUsuario;
     }
 
     public void setIdUsuario(int idUsuario) {
-        IdUsuario = idUsuario;
+        this.idUsuario = idUsuario;
     }
 
     public UsuarioModel getUsuario() {
-        return Usuario;
+        return usuario;
     }
 
     public void setUsuario(UsuarioModel usuario) {
-        Usuario = usuario;
+        this.usuario = usuario;
     }
 }

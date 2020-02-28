@@ -6,11 +6,15 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.Manifest;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,6 +25,7 @@ import android.widget.Toast;
 
 import com.example.morfaap.Models.UsuarioModel;
 import com.example.morfaap.R;
+import com.example.morfaap.ui.login.LoginActivity;
 
 import java.nio.charset.Charset;
 import java.time.LocalDate;
@@ -28,7 +33,9 @@ import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 public class RegistroActivity extends AppCompatActivity implements LocationListener {
-    private EditText email,fecNac,etLan,etLon,direccion,numCelular,password;
+    private EditText email,etLan,etLon,direccion,numCelular,password;
+    private EditText fecNacAño, fecNacMes, fecNacDia;
+    private String fecNac;
     private double lat, lon;
     private RegistroViewModel registroViewModel;
     private CheckBox cbUbicacion;
@@ -49,22 +56,60 @@ public class RegistroActivity extends AppCompatActivity implements LocationListe
     }
 
     public void registrarse(View view){
-        usuarioModel.setEmail(email.getText().toString());
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            usuarioModel.setFecNac(fecNac.getText().toString());
+
+        if(email.getText().toString() !="" && (fecNacAño.getText().toString() != ""
+        && fecNacMes.getText().toString() !=""
+        && fecNacDia.getText().toString() !="")
+        && direccion.getText().toString() != ""
+        && numCelular.getText().toString() !=""
+        && password.getText().toString() !="") {
+            usuarioModel.setEmail(email.getText().toString());
+            fecNac = fecNacAño.getText().toString() + "-" + fecNacMes.getText().toString() + "-" + fecNacDia.getText().toString();
+            usuarioModel.setFecNac(fecNac);
+            usuarioModel.setLat(etLan.getText().toString());
+            usuarioModel.setLon(etLon.getText().toString());
+            usuarioModel.setDireccion(direccion.getText().toString());
+            usuarioModel.setNumCelular(numCelular.getText().toString());
+            usuarioModel.setPassword(password.getText().toString());
+
+
+            if (registroViewModel.Registro(usuarioModel) == 1) {
+                Toast.makeText(getApplicationContext(), "Registro exitoso!!!!", Toast.LENGTH_LONG).show();
+            }
+            alertaRegistroExito();
+        }else{
+            alertaRegistroError();
         }
-        usuarioModel.setLat(etLan.getText().toString());
-        usuarioModel.setLon(etLon.getText().toString());
-        usuarioModel.setDireccion(direccion.getText().toString());
-        usuarioModel.setNumCelular(numCelular.getText().toString());
-        usuarioModel.setPassword(password.getText().toString());
-        registroViewModel.Registro(usuarioModel);
+
+    }
+
+    private  void alertaRegistroError(){
+        new AlertDialog.Builder(this).setTitle("Error al registrarse!!").setMessage("Fijate que todos los campos esten completos. Son todos obligatorios").setPositiveButton("Ok",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                    }
+                }).show();
+    }
+
+    private  void alertaRegistroExito(){
+        new AlertDialog.Builder(this).setTitle("Exito al registrarse!!").setMessage("Ahora podes inciar sesion y pedir comida!!").setPositiveButton("Ok",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        finishActivity(0);
+                        Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                        startActivity(intent);
+                    }
+                }).show();
     }
 
     private void inicializar(){
 
         email = findViewById(R.id.etEmailRegistro);
-        fecNac = findViewById(R.id.etFecNacRegistro);
+        fecNacAño = findViewById(R.id.etFecNacRegistroAño);
+        fecNacMes = findViewById(R.id.etFecNacRegistroMes);
+        fecNacDia = findViewById(R.id.etFecNacRegistroDia);
         cbUbicacion = findViewById(R.id.cbUbicacion);
         etLan = findViewById(R.id.etLatRegistro);
         etLon = findViewById(R.id.etLonRegistro);
@@ -107,14 +152,13 @@ public class RegistroActivity extends AppCompatActivity implements LocationListe
         if(ubicacion!=null){
             Log.d("Latitud",String.valueOf(loc.getLatitude()));
             Log.d("Longitud",String.valueOf(loc.getLongitude()));
-            Toast.makeText(getApplicationContext(),"Latitud "+ loc.getAltitude(),Toast.LENGTH_LONG).show();
         }
     }
 
 
     @Override
     public void onLocationChanged(Location location) {
-        double Latitud = location.getAltitude();
+        double Latitud = location.getLatitude();
         double Longitud = location.getLongitude();
         etLan.setText(String.valueOf(Latitud));
         etLon.setText(String.valueOf(Longitud));

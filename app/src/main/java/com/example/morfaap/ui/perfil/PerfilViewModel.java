@@ -51,6 +51,7 @@ public class PerfilViewModel extends AndroidViewModel {
             public void onResponse(Call<UsuarioModel> call, Response<UsuarioModel> response) {
                 if (response.isSuccessful()){
                     usuario.postValue(response.body());
+                    Log.d("el usuario",response.body().toString());
                 }else{
                     Toast.makeText(context,"Error al mostrar los datos",Toast.LENGTH_LONG).show();
                     Log.d("Respondio Mal",response.message());

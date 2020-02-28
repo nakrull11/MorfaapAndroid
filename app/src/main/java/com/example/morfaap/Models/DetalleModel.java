@@ -1,61 +1,74 @@
 package com.example.morfaap.Models;
 
+import androidx.annotation.NonNull;
+
 public class DetalleModel {
 
-    private int IdDetalle;
-    private int IdPedido;
-    private PedidoModel Pedido;
-    private int IdPlato;
-    private PlatoModel Plato;
+    private int idDetalle;
+    private int idPedido;
+    private PedidoModel pedido;
+    private int idPlato;
+    private PlatoModel plato;
 
     public DetalleModel(int idDetalle, int idPedido, PedidoModel pedido, int idPlato, PlatoModel plato) {
-        IdDetalle = idDetalle;
-        IdPedido = idPedido;
-        Pedido = pedido;
-        IdPlato = idPlato;
-        Plato = plato;
+        this.idDetalle = idDetalle;
+        this.idPedido = idPedido;
+        this.pedido = pedido;
+        this.idPlato = idPlato;
+        this.plato = plato;
     }
 
     public DetalleModel() {
     }
 
+    @Override
+    public String toString() {
+        return "DetalleModel{" +
+                "idDetalle=" + idDetalle +
+                ", idPedido=" + idPedido +
+                ", pedido=" + pedido +
+                ", idPlato=" + idPlato +
+                ", plato=" + plato +
+                '}';
+    }
+
     public int getIdDetalle() {
-        return IdDetalle;
+        return idDetalle;
     }
 
     public void setIdDetalle(int idDetalle) {
-        IdDetalle = idDetalle;
+        this.idDetalle = idDetalle;
     }
 
     public int getIdPedido() {
-        return IdPedido;
+        return idPedido;
     }
 
     public void setIdPedido(int idPedido) {
-        IdPedido = idPedido;
+        this.idPedido = idPedido;
     }
 
     public PedidoModel getPedido() {
-        return Pedido;
+        return pedido;
     }
 
     public void setPedido(PedidoModel pedido) {
-        Pedido = pedido;
+        this.pedido = pedido;
     }
 
     public int getIdPlato() {
-        return IdPlato;
+        return idPlato;
     }
 
     public void setIdPlato(int idPlato) {
-        IdPlato = idPlato;
+        this.idPlato = idPlato;
     }
 
     public PlatoModel getPlato() {
-        return Plato;
+        return this.plato;
     }
 
     public void setPlato(PlatoModel plato) {
-        Plato = plato;
+        this.plato = plato;
     }
 }
